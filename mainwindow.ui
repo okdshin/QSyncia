@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>385</height>
+    <width>499</width>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>QSyncia</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -25,7 +25,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="search_edit"/>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton">
@@ -37,7 +37,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QTreeView" name="treeView"/>
+     <widget class="QTreeView" name="key_hash_view"/>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_3">
@@ -53,7 +53,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>350</width>
+     <width>499</width>
      <height>22</height>
     </rect>
    </property>
@@ -92,10 +92,13 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAddUploadDIrectory">
    <property name="text">
-    <string>AddUploadDIrectory</string>
+    <string>AddUploadDirectory</string>
    </property>
   </action>
   <action name="actionOption">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Option</string>
    </property>
@@ -130,5 +133,110 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAddUploadDIrectory</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>AddUploadDirectory()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SearchKeyHash()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>409</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>AddUploadDirectory()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>key_hash_view</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>DownloadFile(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionVersion</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ShowVersionInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOption</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>OpenOptionDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>AddUploadDirectory()</slot>
+  <slot>SearchKeyHash()</slot>
+  <slot>DownloadFile(QModelIndex)</slot>
+  <slot>Close()</slot>
+  <slot>ShowVersionInfo()</slot>
+  <slot>SetDownloadDirectoryPath()</slot>
+  <slot>OpenOptionDialog()</slot>
+ </slots>
 </ui>

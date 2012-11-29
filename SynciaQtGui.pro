@@ -21,7 +21,12 @@ LIBS += -lboost_filesystem -lboost_date_time -lboost_iostreams -lboost_serializa
 
 # Input
 HEADERS += mainwindow.h \
+    KeyHashModel.h \
+    optiondialog.h
 
-FORMS += mainwindow.ui
+FORMS += mainwindow.ui \
+    optiondialog.ui
 SOURCES += main.cpp \
-           mainwindow.cpp
+           mainwindow.cpp \
+    KeyHashModel.cpp \
+    optiondialog.cpp
